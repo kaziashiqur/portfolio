@@ -16,6 +16,7 @@
   <meta property="og:description"
     content="5.5+ years building production-grade SaaS products, REST APIs, and payment-driven platforms in PHP/Laravel — 20+ applications owned end to end, from database design to deployment.">
   <meta property="og:site_name" content="Md Ashiqur Rahman">
+  <meta property="og:image" content="https://kaziashiqur.github.io/portfolio/profile.jpg">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary">
@@ -229,6 +230,42 @@
     .hero {
       padding: 88px 0 64px;
       position: relative;
+    }
+
+    .hero-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      margin-bottom: 44px;
+    }
+
+    .hero-top .hero-meta {
+      margin-bottom: 0;
+    }
+
+    .hero-photo {
+      flex-shrink: 0;
+      width: clamp(150px, 20vw, 210px);
+      height: auto;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: 3px;
+      border: 1px solid var(--border);
+      outline: 1px solid rgba(240, 168, 104, 0.4);
+      outline-offset: 6px;
+    }
+
+    @media (max-width:760px) {
+      .hero-top {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 28px;
+      }
+
+      .hero-photo {
+        width: 120px;
+      }
     }
 
     .hero-eyebrow {
@@ -900,6 +937,8 @@
     <!-- HERO -->
     <section class="hero" id="hero">
       <div class="sheet">
+        <div class="hero-top">
+        <div class="hero-intro">
         <div class="hero-eyebrow">
           <span class="ping"></span>
           <span class="label">Available for mid-to-senior Software Engineer / Laravel roles</span>
@@ -916,6 +955,9 @@
           <div><span class="k">Based in</span> Dhaka, Bangladesh</div>
           <div><span class="k">Currently</span> THESOFTKING Ltd — since Jan 2021</div>
           <div><span class="k">Also knows</span> C, C++</div>
+        </div>
+        </div>
+        <img class="hero-photo" src="profile.jpg" alt="Portrait of Md Ashiqur Rahman" width="400" height="400">
         </div>
 
         <div class="hero-ctas">
