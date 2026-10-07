@@ -9,7 +9,7 @@
     content="Md Ashiqur Rahman — Software Engineer and PHP &amp; Laravel backend developer specializing in SaaS and REST APIs. 5.5+ years and 20+ production applications across SaaS, e-commerce, booking, and fintech.">
   <meta name="author" content="Md Ashiqur Rahman">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#0f1216">
+  <meta name="theme-color" content="#0f1322">
 
   <!-- Open Graph -->
   <meta property="og:type" content="profile">
@@ -27,7 +27,7 @@
     content="5.5+ years and 20+ production applications: SaaS products, REST APIs, and payment-driven platforms in PHP/Laravel.">
 
   <link rel="icon"
-    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230f1216'/%3E%3Ctext x='50' y='70' font-family='Arial,sans-serif' font-size='58' font-weight='700' fill='%237ab8ff' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23f3c06b'/%3E%3Ctext x='50' y='70' font-family='Arial,sans-serif' font-size='58' font-weight='700' fill='%231a1405' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
 
   <script type="application/ld+json">
   {
@@ -45,26 +45,32 @@
   }
   </script>
 
+  <script>document.documentElement.classList.add('js');</script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
     rel="stylesheet">
   <style>
     :root {
-      --canvas: #0f1216;
-      --surface: #151a20;
+      --canvas: #0f1322;
+      --canvas-alt: #121728;
+      --surface: #171c2f;
+      --surface-2: #1c2238;
       --line: rgba(255, 255, 255, 0.09);
       --line-strong: rgba(255, 255, 255, 0.18);
-      --ink: #f3f5f7;
-      --text: rgba(243, 245, 247, 0.72);
-      --muted: rgba(243, 245, 247, 0.5);
-      --accent: #7ab8ff;
-      --accent-soft: rgba(122, 184, 255, 0.1);
-      --radius: 14px;
+      --ink: #f5f6fa;
+      --text: rgba(245, 246, 250, 0.74);
+      --muted: rgba(245, 246, 250, 0.52);
+      --accent: #f3c06b;
+      --accent-hover: #f8d596;
+      --accent-soft: rgba(243, 192, 107, 0.1);
+      --accent-line: rgba(243, 192, 107, 0.32);
+      --radius: 16px;
       --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
-      --display: 'Manrope', 'Inter', system-ui, sans-serif;
-      --wrap: min(1040px, 100% - 48px);
+      --display: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+      --wrap: min(1120px, 100% - 48px);
     }
 
     * {
@@ -74,16 +80,6 @@
     html {
       scroll-behavior: smooth;
       scroll-padding-top: 88px;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      * {
-        transition-duration: 0.01ms !important;
-      }
     }
 
     body {
@@ -112,7 +108,8 @@
     p,
     ul,
     dl,
-    dd {
+    dd,
+    figure {
       margin: 0;
     }
 
@@ -127,8 +124,8 @@
     }
 
     svg.i {
-      width: 19px;
-      height: 19px;
+      width: 20px;
+      height: 20px;
       fill: none;
       stroke: currentColor;
       stroke-width: 1.6;
@@ -148,37 +145,106 @@
       margin: 0 auto;
     }
 
+    .accent {
+      color: var(--accent);
+    }
+
+    /* gentle reveal, only when JS is running */
+    .js .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+
+    .js .reveal.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ---------- card (the one repeating unit) ---------- */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px;
+      transition: border-color 0.25s ease, transform 0.25s ease, background 0.25s ease;
+    }
+
+    .card.lift:hover {
+      border-color: var(--accent-line);
+      background: var(--surface-2);
+      transform: translateY(-3px);
+    }
+
+    .tile {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-line);
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tags li {
+      font-size: 13.5px;
+      font-weight: 500;
+      line-height: 1;
+      color: var(--text);
+      padding: 8px 12px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--line);
+    }
+
     /* ---------- buttons ---------- */
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      height: 44px;
-      font: 600 14.5px/1 var(--sans);
-      padding: 0 20px;
-      border-radius: 10px;
+      gap: 9px;
+      height: 48px;
+      font: 600 15px/1 var(--sans);
+      padding: 0 24px;
+      border-radius: 12px;
       border: 1px solid var(--accent);
       background: var(--accent);
-      color: var(--canvas);
+      color: #1a1405;
       cursor: pointer;
-      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
     }
 
     .btn:hover {
-      background: #a5cfff;
-      border-color: #a5cfff;
+      background: var(--accent-hover);
+      border-color: var(--accent-hover);
+      transform: translateY(-2px);
     }
 
     .btn-ghost {
-      background: none;
+      background: rgba(255, 255, 255, 0.03);
       border-color: var(--line-strong);
       color: var(--ink);
     }
 
     .btn-ghost:hover {
-      background: none;
-      border-color: var(--accent);
+      background: var(--accent-soft);
+      border-color: var(--accent-line);
       color: var(--accent);
+    }
+
+    .btn-sm {
+      height: 40px;
+      padding: 0 16px;
+      font-size: 14px;
+      border-radius: 10px;
     }
 
     .icon-links {
@@ -189,19 +255,20 @@
     .icon-links a {
       display: grid;
       place-items: center;
-      width: 44px;
-      height: 44px;
-      border-radius: 10px;
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
       border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.04);
+      background: rgba(255, 255, 255, 0.03);
       color: var(--text);
-      transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+      transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease, transform 0.2s ease;
     }
 
     .icon-links a:hover {
-      border-color: var(--accent);
+      border-color: var(--accent-line);
       background: var(--accent-soft);
       color: var(--accent);
+      transform: translateY(-2px);
     }
 
     /* ---------- header ---------- */
@@ -209,9 +276,9 @@
       position: sticky;
       top: 0;
       z-index: 30;
-      background: rgba(15, 18, 22, 0.9);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      background: rgba(15, 19, 34, 0.86);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--line);
     }
 
@@ -220,47 +287,62 @@
       align-items: center;
       justify-content: space-between;
       gap: 20px;
-      height: 64px;
+      height: 68px;
     }
 
     .brand {
-      font: 800 19px/1 var(--display);
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font: 700 17px/1 var(--display);
       letter-spacing: -0.02em;
       color: var(--ink);
     }
 
-    .brand span {
-      color: var(--accent);
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: var(--accent);
+      color: #1a1405;
+      font: 800 14px/1 var(--display);
+      letter-spacing: -0.02em;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 28px;
+      gap: 4px;
       font-size: 14.5px;
       font-weight: 500;
     }
 
-    .nav-links a {
-      color: var(--muted);
-      padding: 6px 0;
-      border-bottom: 1px solid transparent;
-      transition: color 0.2s ease, border-color 0.2s ease;
+    .nav-links a:not(.btn) {
+      color: var(--text);
+      padding: 8px 13px;
+      border-radius: 9px;
+      transition: color 0.2s ease, background 0.2s ease;
     }
 
-    .nav-links a:hover {
+    .nav-links a:not(.btn):hover {
       color: var(--ink);
     }
 
     .nav-links a.is-active {
-      color: var(--ink);
-      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .nav-links .btn {
+      margin-left: 12px;
     }
 
     .nav-toggle {
       display: none;
-      width: 40px;
-      height: 40px;
+      width: 42px;
+      height: 42px;
       border-radius: 10px;
       border: 1px solid var(--line-strong);
       background: none;
@@ -268,18 +350,17 @@
       place-items: center;
     }
 
-    @media (max-width: 860px) {
+    @media (max-width: 940px) {
       .nav-toggle {
         display: grid;
       }
 
       .nav-links {
         position: absolute;
-        inset: 64px 0 auto 0;
+        inset: 68px 0 auto 0;
         flex-direction: column;
-        align-items: flex-start;
-        gap: 4px;
-        padding: 12px 24px 18px;
+        align-items: stretch;
+        padding: 12px 24px 20px;
         background: var(--canvas);
         border-bottom: 1px solid var(--line);
         display: none;
@@ -289,122 +370,189 @@
         display: flex;
       }
 
-      .nav-links a {
-        padding: 9px 0;
+      .nav-links a:not(.btn) {
+        padding: 12px;
         font-size: 16px;
+      }
+
+      .nav-links .btn {
+        margin: 8px 0 0;
       }
     }
 
     /* ---------- hero ---------- */
     .hero {
-      padding: 96px 0 0;
+      position: relative;
+      padding: 92px 0 0;
+      background:
+        radial-gradient(900px 520px at 88% -10%, rgba(243, 192, 107, 0.09), transparent 70%),
+        radial-gradient(700px 480px at 0% 0%, rgba(116, 134, 255, 0.08), transparent 70%);
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1fr 300px;
-      gap: 80px;
+      grid-template-columns: 1fr 360px;
+      gap: 76px;
       align-items: center;
     }
 
-    .status {
+    .hello {
       display: inline-flex;
       align-items: center;
       gap: 10px;
       font-size: 14px;
-      color: var(--text);
-      margin-bottom: 22px;
+      font-weight: 500;
+      color: var(--ink);
+      padding: 8px 14px 8px 12px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--line);
+      margin-bottom: 26px;
     }
 
-    .status::before {
+    .hello::before {
       content: "";
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: #5fd39a;
-      flex-shrink: 0;
+      background: #63d39c;
+      box-shadow: 0 0 0 4px rgba(99, 211, 156, 0.16);
     }
 
     .hero h1 {
-      font: 800 clamp(38px, 5.6vw, 62px)/1.06 var(--display);
-      letter-spacing: -0.04em;
+      font: 800 clamp(42px, 6.2vw, 72px)/1.03 var(--display);
+      letter-spacing: -0.045em;
       color: var(--ink);
+      margin-bottom: 22px;
+    }
+
+    .hero-lead {
+      font: 600 clamp(21px, 2.7vw, 29px)/1.32 var(--display);
+      letter-spacing: -0.025em;
+      color: var(--ink);
+      max-width: 27ch;
+      text-wrap: balance;
       margin-bottom: 18px;
     }
 
-    .hero h1 span {
-      color: var(--accent);
-    }
-
-    .hero-role {
-      font: 600 clamp(18px, 2.2vw, 22px)/1.45 var(--display);
-      letter-spacing: -0.015em;
-      color: var(--ink);
-      margin-bottom: 14px;
-      max-width: 34ch;
-      text-wrap: balance;
-    }
-
-    .hero-role span {
-      color: var(--accent);
-    }
-
     .hero-sub {
-      font-size: 17px;
+      font-size: 17.5px;
       max-width: 54ch;
-      margin-bottom: 32px;
+      margin-bottom: 34px;
     }
 
     .hero-ctas {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
     .hero-ctas .icon-links {
       margin-left: 8px;
-      padding-left: 18px;
+      padding-left: 20px;
       border-left: 1px solid var(--line);
     }
 
-    /* photo with an offset outline behind it */
-    .hero-photo {
+    .portrait {
       position: relative;
-      margin: 0 14px 14px 0;
     }
 
-    .hero-photo::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border: 1px solid var(--accent);
-      border-radius: 18px;
-      transform: translate(14px, 14px);
-      opacity: 0.55;
+    .portrait-card {
+      padding: 8px;
+      border-radius: 24px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.38);
     }
 
-    .hero-photo img {
-      position: relative;
+    .portrait-card img {
       display: block;
       width: 100%;
       height: auto;
-      aspect-ratio: 1;
+      aspect-ratio: 4 / 5;
       object-fit: cover;
-      border-radius: 18px;
+      border-radius: 17px;
+    }
+
+    .portrait-card figcaption {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px 12px;
+      padding: 14px 10px 8px;
+      font-size: 14px;
+    }
+
+    .portrait-card figcaption b {
+      display: block;
+      font: 700 15.5px/1.3 var(--display);
+      letter-spacing: -0.01em;
+      color: var(--ink);
+    }
+
+    .portrait-card figcaption span {
+      color: var(--muted);
+    }
+
+    .portrait-card figcaption em {
+      font-style: normal;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--accent);
+      padding: 6px 10px;
+      border-radius: 8px;
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-line);
+      white-space: nowrap;
+    }
+
+    .badge {
+      position: absolute;
+      left: -34px;
+      top: 44px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px 12px 12px;
+      border-radius: 14px;
+      background: var(--surface-2);
+      border: 1px solid var(--line-strong);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+      font-size: 13px;
+      line-height: 1.35;
+      color: var(--text);
+    }
+
+    .badge strong {
+      display: block;
+      font: 800 19px/1.15 var(--display);
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+
+    .badge .tile {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
     }
 
     .stats {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       margin-top: 84px;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
+      padding: 40px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
     }
 
     .stats>div {
-      padding: 26px 28px;
+      padding: 0 28px;
+    }
+
+    .stats>div:first-child {
+      padding-left: 0;
     }
 
     .stats>div+div {
@@ -413,50 +561,49 @@
 
     .stat-num {
       display: block;
-      font: 800 30px/1.2 var(--display);
-      letter-spacing: -0.03em;
-      color: var(--ink);
+      font: 800 clamp(34px, 4.4vw, 46px)/1.1 var(--display);
+      letter-spacing: -0.04em;
+      color: var(--accent);
       font-variant-numeric: tabular-nums;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
 
     .stat-label {
       display: block;
-      font-size: 14px;
+      font-size: 14.5px;
       line-height: 1.5;
-      color: var(--muted);
     }
 
-    @media (max-width: 860px) {
+    @media (max-width: 980px) {
       .hero {
         padding-top: 52px;
       }
 
       .hero-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 48px;
       }
 
-      .hero-photo {
+      .portrait {
         order: -1;
-        width: 200px;
+        max-width: 300px;
+      }
+
+      .badge {
+        left: auto;
+        right: -18px;
+        top: 28px;
       }
 
       .stats {
         grid-template-columns: repeat(2, 1fr);
-        margin-top: 56px;
-      }
-
-      .stats>div {
-        padding: 22px;
+        row-gap: 32px;
+        margin-top: 60px;
       }
 
       .stats>div:nth-child(3) {
+        padding-left: 0;
         border-left: 0;
-      }
-
-      .stats>div:nth-child(n+3) {
-        border-top: 1px solid var(--line);
       }
     }
 
@@ -467,56 +614,84 @@
         padding: 0;
         border: 0;
       }
+
+      .badge {
+        right: -8px;
+      }
+
+      .stats>div {
+        padding: 0 16px;
+      }
     }
 
     /* ---------- sections ---------- */
     section.block {
-      padding: 104px 0 0;
+      padding: 112px 0;
+    }
+
+    section.block.alt {
+      background: var(--canvas-alt);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
     }
 
     .head {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 40px;
+      max-width: 700px;
+      margin-bottom: 48px;
     }
 
-    .head span {
-      font: 600 14px/1 var(--display);
+    .label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12.5px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
       color: var(--accent);
-      font-variant-numeric: tabular-nums;
+      margin-bottom: 14px;
+    }
+
+    .label::before {
+      content: "";
+      width: 22px;
+      height: 2px;
+      border-radius: 2px;
+      background: var(--accent);
     }
 
     .head h2 {
-      font: 800 clamp(24px, 3vw, 30px)/1.2 var(--display);
-      letter-spacing: -0.03em;
+      font: 800 clamp(30px, 4.2vw, 42px)/1.12 var(--display);
+      letter-spacing: -0.035em;
       color: var(--ink);
-      white-space: nowrap;
     }
 
-    .head::after {
-      content: "";
-      flex: 1;
-      height: 1px;
-      background: var(--line);
+    .head p {
+      font-size: 17px;
+      margin-top: 14px;
     }
 
     @media (max-width: 860px) {
       section.block {
-        padding-top: 76px;
+        padding: 76px 0;
       }
 
       .head {
-        margin-bottom: 30px;
+        margin-bottom: 36px;
       }
     }
 
     /* ---------- about ---------- */
     .about {
       display: grid;
-      grid-template-columns: 1fr 320px;
-      gap: 56px;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
       align-items: start;
+      margin-bottom: 52px;
+    }
+
+    .about .head {
+      margin-bottom: 0;
     }
 
     .about-text p {
@@ -533,263 +708,258 @@
       font-weight: 600;
     }
 
-    .facts {
-      padding: 6px 22px;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
+    .features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
     }
 
-    .facts>div {
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      padding: 14px 0;
-      font-size: 14.5px;
-    }
-
-    .facts>div+div {
-      border-top: 1px solid var(--line);
-    }
-
-    .facts dt {
-      color: var(--muted);
-      flex-shrink: 0;
-    }
-
-    .facts dd {
+    .feature h3 {
+      font: 700 17px/1.35 var(--display);
+      letter-spacing: -0.015em;
       color: var(--ink);
-      font-weight: 500;
-      text-align: right;
+      margin: 20px 0 8px;
     }
 
-    @media (max-width: 860px) {
+    .feature p {
+      font-size: 14.5px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 980px) {
       .about {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 24px;
+      }
+
+      .features {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    /* ---------- experience (timeline) ---------- */
-    .timeline {
-      position: relative;
-      padding-left: 34px;
+    @media (max-width: 520px) {
+      .features {
+        grid-template-columns: 1fr;
+      }
     }
 
-    .timeline::before {
-      content: "";
-      position: absolute;
-      left: 5px;
-      top: 10px;
-      bottom: 6px;
-      width: 1px;
-      background: var(--line-strong);
-    }
-
+    /* ---------- experience ---------- */
     .job {
-      position: relative;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 44px;
+      padding: 34px;
     }
 
     .job+.job {
-      margin-top: 46px;
-    }
-
-    .job::before {
-      content: "";
-      position: absolute;
-      left: -34px;
-      top: 8px;
-      width: 11px;
-      height: 11px;
-      border-radius: 50%;
-      background: var(--canvas);
-      border: 2px solid var(--accent);
-    }
-
-    .job:first-child::before {
-      background: var(--accent);
-    }
-
-    .job-head {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 4px 24px;
-    }
-
-    .job-head h3 {
-      font: 700 20px/1.4 var(--display);
-      letter-spacing: -0.02em;
-      color: var(--ink);
+      margin-top: 18px;
     }
 
     .job-date {
-      font-size: 14.5px;
-      color: var(--muted);
-      white-space: nowrap;
+      display: inline-block;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--accent);
+      padding: 7px 11px;
+      border-radius: 8px;
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-line);
+      margin-bottom: 18px;
+    }
+
+    .job h3 {
+      font: 700 21px/1.3 var(--display);
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 6px;
     }
 
     .job-company {
       font-size: 15px;
-      font-weight: 500;
-      color: var(--accent);
-      margin: 2px 0 18px;
+      color: var(--text);
+      margin-bottom: 20px;
     }
 
     .job-list li {
       position: relative;
-      padding-left: 20px;
+      padding-left: 28px;
       font-size: 15.5px;
       line-height: 1.7;
     }
 
     .job-list li+li {
-      margin-top: 10px;
+      margin-top: 12px;
     }
 
     .job-list li::before {
       content: "";
       position: absolute;
-      left: 2px;
-      top: 0.8em;
-      width: 8px;
-      height: 1px;
-      background: var(--muted);
+      left: 3px;
+      top: 0.62em;
+      width: 10px;
+      height: 5px;
+      border-left: 2px solid var(--accent);
+      border-bottom: 2px solid var(--accent);
+      transform: rotate(-45deg);
     }
 
-    /* ---------- work (numbered list) ---------- */
-    .work-list {
+    @media (max-width: 860px) {
+      .job {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        padding: 26px 22px;
+      }
+    }
+
+    /* ---------- work ---------- */
+    .work-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      column-gap: 56px;
-      counter-reset: work;
-      border-top: 1px solid var(--line);
-    }
-
-    .work-list li {
-      display: flex;
-      align-items: baseline;
+      grid-template-columns: repeat(4, 1fr);
       gap: 16px;
-      padding: 18px 2px;
-      border-bottom: 1px solid var(--line);
-      counter-increment: work;
-      font: 600 16.5px/1.4 var(--display);
-      letter-spacing: -0.01em;
-      color: var(--ink);
-      transition: color 0.2s ease;
     }
 
-    .work-list li::before {
-      content: counter(work, decimal-leading-zero);
-      font-size: 13px;
-      color: var(--accent);
+    .work-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 176px;
+    }
+
+    .work-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .work-top span {
+      font: 700 13px/1 var(--display);
+      color: var(--muted);
       font-variant-numeric: tabular-nums;
     }
 
-    .work-list li span {
-      margin-left: auto;
-      font: 400 13.5px/1.4 var(--sans);
-      letter-spacing: 0;
-      color: var(--muted);
-      white-space: nowrap;
+    .work-card h3 {
+      font: 700 17px/1.35 var(--display);
+      letter-spacing: -0.015em;
+      color: var(--ink);
+      margin-top: auto;
+      padding-top: 24px;
     }
 
-    .work-list li:hover {
+    .work-card p {
+      font-size: 13.5px;
       color: var(--accent);
+      margin-top: 4px;
     }
 
     .note {
-      margin-top: 22px;
-      font-size: 14.5px;
-      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 14px;
+      margin-top: 26px;
+      font-size: 15px;
     }
 
-    @media (max-width: 760px) {
-      .work-list {
+    @media (max-width: 980px) {
+      .work-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 460px) {
+      .work-grid {
         grid-template-columns: 1fr;
+      }
+
+      .work-card {
+        min-height: 0;
       }
     }
 
     /* ---------- skills ---------- */
-    .skills>div {
+    .skills-grid {
       display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 12px 24px;
-      padding: 20px 0;
-      border-top: 1px solid var(--line);
+      grid-template-columns: repeat(6, 1fr);
+      gap: 16px;
     }
 
-    .skills>div:last-child {
-      border-bottom: 1px solid var(--line);
+    .skill-card {
+      grid-column: span 2;
     }
 
-    .skills dt {
-      font: 700 16px/1.6 var(--display);
-      letter-spacing: -0.01em;
-      color: var(--ink);
+    .skill-card.wide {
+      grid-column: span 3;
     }
 
-    .tags {
+    .skill-head {
       display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
     }
 
-    .tags li {
-      font-size: 13.5px;
-      line-height: 1;
-      color: var(--text);
-      padding: 8px 12px;
-      border-radius: 8px;
-      background: var(--surface);
-      border: 1px solid var(--line);
-    }
-
-    @media (max-width: 760px) {
-      .skills>div {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* ---------- education ---------- */
-    .edu {
-      display: grid;
-      grid-template-columns: 90px 1fr auto;
-      gap: 4px 24px;
-      align-items: baseline;
-      padding: 20px 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .edu:last-child {
-      border-bottom: 1px solid var(--line);
-    }
-
-    .edu-year {
-      font: 600 14px/1.6 var(--display);
-      color: var(--accent);
-      font-variant-numeric: tabular-nums;
-    }
-
-    .edu h3 {
-      font: 700 17px/1.45 var(--display);
+    .skill-head h3 {
+      font: 700 17px/1.3 var(--display);
       letter-spacing: -0.015em;
       color: var(--ink);
     }
 
-    .edu p {
-      font-size: 14.5px;
+    @media (max-width: 980px) {
+
+      .skill-card,
+      .skill-card.wide {
+        grid-column: span 3;
+      }
+    }
+
+    @media (max-width: 640px) {
+
+      .skill-card,
+      .skill-card.wide {
+        grid-column: span 6;
+      }
+    }
+
+    /* ---------- education ---------- */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .edu-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .edu-card .job-date {
+      align-self: flex-start;
+    }
+
+    .edu-card h3 {
+      font: 700 17.5px/1.35 var(--display);
+      letter-spacing: -0.015em;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .edu-card p {
+      font-size: 15px;
     }
 
     .edu-score {
+      margin-top: auto;
+      padding-top: 20px;
       font-size: 14.5px;
       color: var(--muted);
-      white-space: nowrap;
     }
 
-    @media (max-width: 660px) {
-      .edu {
+    .edu-score b {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    @media (max-width: 860px) {
+      .edu-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -797,51 +967,56 @@
     /* ---------- contact ---------- */
     .contact {
       text-align: center;
-      padding: clamp(40px, 6vw, 68px) clamp(22px, 5vw, 56px);
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
+      padding: clamp(44px, 7vw, 80px) clamp(22px, 5vw, 60px);
+      border-radius: 24px;
+      border: 1px solid var(--line-strong);
+      background:
+        radial-gradient(620px 300px at 50% 0%, rgba(243, 192, 107, 0.13), transparent 70%),
+        var(--surface);
     }
 
     .contact h2 {
-      font: 800 clamp(28px, 4.2vw, 42px)/1.14 var(--display);
-      letter-spacing: -0.035em;
+      font: 800 clamp(32px, 5vw, 52px)/1.08 var(--display);
+      letter-spacing: -0.04em;
       color: var(--ink);
-      margin-bottom: 14px;
+      max-width: 16ch;
+      margin: 0 auto 16px;
     }
 
     .contact p {
-      max-width: 52ch;
-      margin: 0 auto 22px;
       font-size: 17px;
+      max-width: 52ch;
+      margin: 0 auto 26px;
     }
 
     .contact-email {
       display: inline-block;
-      font: 600 clamp(16px, 2.6vw, 20px)/1.4 var(--display);
-      color: var(--accent);
-      border-bottom: 1px solid transparent;
-      margin-bottom: 30px;
+      font: 600 clamp(16px, 2.6vw, 21px)/1.4 var(--display);
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      padding-bottom: 3px;
+      border-bottom: 1px solid var(--accent-line);
+      margin-bottom: 34px;
       overflow-wrap: anywhere;
-      transition: border-color 0.2s ease;
+      transition: color 0.2s ease, border-color 0.2s ease;
     }
 
     .contact-email:hover {
-      border-color: currentColor;
+      color: var(--accent);
+      border-color: var(--accent);
     }
 
     .contact-ctas {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 10px;
+      gap: 12px;
     }
 
     footer {
-      margin-top: 104px;
       border-top: 1px solid var(--line);
-      padding: 26px 0 36px;
-      font-size: 13.5px;
+      padding: 28px 0 40px;
+      font-size: 14px;
       color: var(--muted);
     }
 
@@ -849,11 +1024,17 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      gap: 8px 24px;
+      gap: 10px 24px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
     }
 
     .footer-row a:hover {
-      color: var(--ink);
+      color: var(--accent);
     }
 
     /* ---------- resume viewer ---------- */
@@ -908,6 +1089,21 @@
       color: var(--text);
       margin-top: 60px;
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      * {
+        transition-duration: 0.01ms !important;
+      }
+
+      .js .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
   </style>
 </head>
 
@@ -915,6 +1111,65 @@
 
   <!-- icon sprite: one outline family -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-layers" viewBox="0 0 24 24">
+      <path d="M12 3 3 8l9 5 9-5zM3 12l9 5 9-5M3 16l9 5 9-5" />
+    </symbol>
+    <symbol id="i-nodes" viewBox="0 0 24 24">
+      <path d="M10 3h4v4h-4zM4 17h4v4H4zM16 17h4v4h-4zM12 7v4M6 17v-3h12v3M12 11v3" />
+    </symbol>
+    <symbol id="i-card" viewBox="0 0 24 24">
+      <path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM3 10h18M7 15h3" />
+    </symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24">
+      <path d="M13 3 5 13h6l-1 8 8-10h-6z" />
+    </symbol>
+    <symbol id="i-db" viewBox="0 0 24 24">
+      <path
+        d="M5 6c0-1.700 3.100-3 7-3s7 1.300 7 3-3.100 3-7 3-7-1.300-7-3zM5 6v6c0 1.700 3.100 3 7 3s7-1.300 7-3V6M5 12v6c0 1.700 3.100 3 7 3s7-1.300 7-3v-6" />
+    </symbol>
+    <symbol id="i-users" viewBox="0 0 24 24">
+      <path
+        d="M9 11a3.500 3.500 0 1 0 0-7 3.500 3.500 0 0 0 0 7zM3 20a6 6 0 0 1 12 0M16 4.500a3.500 3.500 0 0 1 0 6.500M18 14.500a6 6 0 0 1 3 5.500" />
+    </symbol>
+    <symbol id="i-server" viewBox="0 0 24 24">
+      <path d="M4 5h16v6H4zM4 13h16v6H4zM8 8h.01M8 16h.01" />
+    </symbol>
+    <symbol id="i-layout" viewBox="0 0 24 24">
+      <path d="M4 5h16v14H4zM4 9h16M9 9v10" />
+    </symbol>
+    <symbol id="i-terminal" viewBox="0 0 24 24">
+      <path d="M4 5h16v14H4zM8 10l3 2-3 2M13 15h3" />
+    </symbol>
+    <symbol id="i-briefcase" viewBox="0 0 24 24">
+      <path d="M4 8h16v11H4zM9 8V5h6v3M4 13h16" />
+    </symbol>
+    <symbol id="i-hotel" viewBox="0 0 24 24">
+      <path d="M4 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16M16 9h2a2 2 0 0 1 2 2v10M3 21h18M8 7h4M8 11h4M8 15h4" />
+    </symbol>
+    <symbol id="i-bus" viewBox="0 0 24 24">
+      <path
+        d="M5 17V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v11M5 12h14M5 17h14M8 17v2M16 17v2M8.500 14.500h.01M15.500 14.500h.01" />
+    </symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24">
+      <path
+        d="M4 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zM4 10h16M8 3v4M16 3v4M9 15l2 2 4-4" />
+    </symbol>
+    <symbol id="i-cart" viewBox="0 0 24 24">
+      <path d="M3 4h2l2.400 11h10.200L20 7H6.200M9 20h.01M17 20h.01" />
+    </symbol>
+    <symbol id="i-image" viewBox="0 0 24 24">
+      <path
+        d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zM4 16l4.500-4.500 4 4 2.500-2.500L20 17M15 9h.01" />
+    </symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24">
+      <path d="M12 20s-7-4.400-7-10a4 4 0 0 1 7-2.600A4 4 0 0 1 19 10c0 5.600-7 10-7 10z" />
+    </symbol>
+    <symbol id="i-sim" viewBox="0 0 24 24">
+      <path d="M7 3h7l4 4v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zM9 12h6v5H9z" />
+    </symbol>
+    <symbol id="i-play" viewBox="0 0 24 24">
+      <path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zM10 9l5 3-5 3z" />
+    </symbol>
     <symbol id="i-github" viewBox="0 0 24 24">
       <path
         d="M9 19c-4.300 1.400-4.300-2.500-6-3m12 5v-3.500c0-1 .1-1.400-.5-2 2.800-.3 5.500-1.400 5.500-6a4.600 4.600 0 0 0-1.300-3.200 4.200 4.200 0 0 0-.1-3.200s-1.100-.3-3.500 1.300a12.300 12.300 0 0 0-6.200 0C6.500 2.800 5.400 3.100 5.400 3.100a4.200 4.200 0 0 0-.1 3.200A4.600 4.600 0 0 0 4 9.500c0 4.600 2.700 5.700 5.500 6-.6.600-.6 1.200-.5 2V21" />
@@ -925,6 +1180,9 @@
     <symbol id="i-mail" viewBox="0 0 24 24">
       <path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM3 7l9 6 9-6" />
     </symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24">
+      <path d="M5 12h14M13 6l6 6-6 6" />
+    </symbol>
     <symbol id="i-menu" viewBox="0 0 24 24">
       <path d="M4 7h16M4 12h16M4 17h16" />
     </symbol>
@@ -932,7 +1190,7 @@
 
   <header id="siteHeader">
     <div class="wrap nav-row">
-      <a href="#top" class="brand">ashiqur<span>.</span></a>
+      <a href="#top" class="brand"><span class="brand-mark">AR</span>Ashiqur Rahman</a>
       <button type="button" class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"
         aria-controls="navLinks">
         <svg class="i">
@@ -940,13 +1198,13 @@
         </svg>
       </button>
       <nav class="nav-links" id="navLinks" aria-label="Primary">
-        <a href="#top" class="is-active">Home</a>
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
         <a href="#work">Work</a>
         <a href="#skills">Skills</a>
         <a href="#education">Education</a>
         <a href="#contact">Contact</a>
+        <a href="resume.pdf" class="btn btn-sm js-resume">Resume</a>
       </nav>
     </div>
   </header>
@@ -958,17 +1216,19 @@
       <div class="wrap">
         <div class="hero-grid">
           <div>
-            <p class="status">Open to mid-to-senior Software Engineer / Laravel roles</p>
-            <h1>Md Ashiqur Rahman<span>.</span></h1>
-            <p class="hero-role">Software Engineer building <span>SaaS platforms &amp; REST APIs</span> with PHP
-              &amp; Laravel.</p>
+            <p class="hello">Open to mid-to-senior Software Engineer / Laravel roles</p>
+            <h1>Md Ashiqur <span class="accent">Rahman</span></h1>
+            <p class="hero-lead">Software Engineer building SaaS platforms &amp; REST APIs with PHP &amp; Laravel.</p>
             <p class="hero-sub">
               5.5+ years shipping production-grade web applications across SaaS, e-commerce, booking, and fintech —
               owned end to end, from database design to deployment.
             </p>
             <div class="hero-ctas">
-              <a href="resume.pdf" class="btn js-resume">View resume</a>
-              <a href="#contact" class="btn btn-ghost">Get in touch</a>
+              <a href="#contact" class="btn">Get in touch
+                <svg class="i">
+                  <use href="#i-arrow" />
+                </svg></a>
+              <a href="resume.pdf" class="btn btn-ghost js-resume">View resume</a>
               <div class="icon-links">
                 <a href="https://github.com/kaziashiqur" target="_blank" rel="noopener" aria-label="GitHub"
                   title="GitHub">
@@ -988,9 +1248,21 @@
             </div>
           </div>
 
-          <figure class="hero-photo">
-            <img src="profile.jpg" alt="Portrait of Md Ashiqur Rahman" width="400" height="400">
-          </figure>
+          <div class="portrait">
+            <div class="badge">
+              <span class="tile"><svg class="i">
+                  <use href="#i-briefcase" />
+                </svg></span>
+              <span><strong>5.5+ years</strong>of experience</span>
+            </div>
+            <figure class="portrait-card">
+              <img src="profile.jpg" alt="Portrait of Md Ashiqur Rahman" width="400" height="500">
+              <figcaption>
+                <span><b>Md Ashiqur Rahman</b>Dhaka, Bangladesh</span>
+                <em>THESOFTKING Ltd</em>
+              </figcaption>
+            </figure>
+          </div>
         </div>
 
         <div class="stats">
@@ -1017,11 +1289,11 @@
     <!-- ABOUT -->
     <section class="block" id="about">
       <div class="wrap">
-        <div class="head"><span>01</span>
-          <h2>About</h2>
-        </div>
-
-        <div class="about">
+        <div class="about reveal">
+          <div class="head">
+            <span class="label">About me</span>
+            <h2>A backend engineer who owns systems <span class="accent">end to end</span>.</h2>
+          </div>
           <div class="about-text">
             <p>
               I'm a Software Engineer with <strong>5.5+ years</strong> of experience building production-grade web
@@ -1029,249 +1301,340 @@
               fintech domains.
             </p>
             <p>
-              I've delivered <strong>20+ full-stack applications and RESTful APIs</strong>, including multi-tenant
-              SaaS architectures, real-time interfaces with Laravel Livewire, and payment gateway integrations.
-            </p>
-            <p>
               I own systems from database design to deployment, and I've mentored junior developers and led small
               feature teams. I'm also comfortable with JavaScript, Node.js, React.js, Docker, and AI-assisted
               development workflows.
             </p>
           </div>
+        </div>
 
-          <dl class="facts">
-            <div>
-              <dt>Role</dt>
-              <dd>Software Engineer</dd>
-            </div>
-            <div>
-              <dt>Focus</dt>
-              <dd>PHP &amp; Laravel backend</dd>
-            </div>
-            <div>
-              <dt>Currently</dt>
-              <dd>THESOFTKING Ltd</dd>
-            </div>
-            <div>
-              <dt>Location</dt>
-              <dd>Dhaka, Bangladesh</dd>
-            </div>
-            <div>
-              <dt>Languages</dt>
-              <dd>Bangla, English</dd>
-            </div>
-          </dl>
+        <div class="features">
+          <div class="card lift feature reveal">
+            <span class="tile"><svg class="i">
+                <use href="#i-layers" />
+              </svg></span>
+            <h3>Multi-tenant SaaS</h3>
+            <p>Platforms that serve multiple isolated client instances from one shared codebase.</p>
+          </div>
+          <div class="card lift feature reveal">
+            <span class="tile"><svg class="i">
+                <use href="#i-nodes" />
+              </svg></span>
+            <h3>REST APIs</h3>
+            <p>20+ production Laravel applications and RESTful APIs, plus third-party integrations.</p>
+          </div>
+          <div class="card lift feature reveal">
+            <span class="tile"><svg class="i">
+                <use href="#i-card" />
+              </svg></span>
+            <h3>Payment flows</h3>
+            <p>Secure, scalable transaction flows across 4–6 integrated payment gateways.</p>
+          </div>
+          <div class="card lift feature reveal">
+            <span class="tile"><svg class="i">
+                <use href="#i-bolt" />
+              </svg></span>
+            <h3>Real-time interfaces</h3>
+            <p>Dynamic UIs with Laravel Livewire that remove full-page reloads.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- EXPERIENCE -->
-    <section class="block" id="experience">
+    <section class="block alt" id="experience">
       <div class="wrap">
-        <div class="head"><span>02</span>
-          <h2>Experience</h2>
+        <div class="head reveal">
+          <span class="label">Experience</span>
+          <h2>Where I've done the work</h2>
+          <p>Two roles, both in PHP and Laravel, growing from feature work to owning whole systems.</p>
         </div>
 
-        <div class="timeline">
-          <article class="job">
-            <div class="job-head">
-              <h3>Software Developer (PHP / Laravel)</h3>
-              <span class="job-date">January 2021 – Present</span>
-            </div>
+        <article class="card job reveal">
+          <div>
+            <span class="job-date">January 2021 – Present</span>
+            <h3>Software Developer (PHP / Laravel)</h3>
             <p class="job-company">THESOFTKING Ltd, Bangladesh</p>
-            <ul class="job-list">
-              <li>Delivered 20+ production Laravel applications and RESTful APIs for SaaS, e-commerce, booking, and
-                fintech clients, owning each system from MySQL database design through deployment.</li>
-              <li>Architected multi-tenant SaaS platforms that serve multiple isolated client instances from one
-                shared codebase, reducing duplicate maintenance effort.</li>
-              <li>Integrated 4–6 payment gateways and third-party APIs to build secure, scalable transaction flows
-                for e-commerce and booking platforms.</li>
-              <li>Built real-time, dynamic user interfaces with Laravel Livewire, eliminating full-page reloads and
-                improving application responsiveness.</li>
-              <li>Mentored junior developers and led small feature teams, conducting code reviews.</li>
-              <li>Maintained live production systems, balancing new features with stability and performance.</li>
+            <ul class="tags">
+              <li>PHP</li>
+              <li>Laravel</li>
+              <li>Livewire</li>
+              <li>MySQL</li>
+              <li>REST APIs</li>
             </ul>
-          </article>
+          </div>
+          <ul class="job-list">
+            <li>Delivered 20+ production Laravel applications and RESTful APIs for SaaS, e-commerce, booking, and
+              fintech clients, owning each system from MySQL database design through deployment.</li>
+            <li>Architected multi-tenant SaaS platforms that serve multiple isolated client instances from one
+              shared codebase, reducing duplicate maintenance effort.</li>
+            <li>Integrated 4–6 payment gateways and third-party APIs to build secure, scalable transaction flows
+              for e-commerce and booking platforms.</li>
+            <li>Built real-time, dynamic user interfaces with Laravel Livewire, eliminating full-page reloads and
+              improving application responsiveness.</li>
+            <li>Mentored junior developers and led small feature teams, conducting code reviews.</li>
+            <li>Maintained live production systems, balancing new features with stability and performance.</li>
+          </ul>
+        </article>
 
-          <article class="job">
-            <div class="job-head">
-              <h3>Junior Software Developer (PHP / Laravel)</h3>
-              <span class="job-date">March 2019 – December 2020</span>
-            </div>
+        <article class="card job reveal">
+          <div>
+            <span class="job-date">March 2019 – December 2020</span>
+            <h3>Junior Software Developer (PHP / Laravel)</h3>
             <p class="job-company">Deshi System Limited, Bangladesh</p>
-            <ul class="job-list">
-              <li>Developed and maintained PHP/Laravel web applications, delivering backend features, MySQL schema
-                changes, and bug fixes.</li>
-              <li>Built a strong foundation in Laravel architecture, database design, Git, and code review
-                workflows.</li>
+            <ul class="tags">
+              <li>PHP</li>
+              <li>Laravel</li>
+              <li>MySQL</li>
+              <li>Git</li>
             </ul>
-          </article>
-        </div>
+          </div>
+          <ul class="job-list">
+            <li>Developed and maintained PHP/Laravel web applications, delivering backend features, MySQL schema
+              changes, and bug fixes.</li>
+            <li>Built a strong foundation in Laravel architecture, database design, Git, and code review
+              workflows.</li>
+          </ul>
+        </article>
       </div>
     </section>
 
     <!-- WORK -->
     <section class="block" id="work">
       <div class="wrap">
-        <div class="head"><span>03</span>
-          <h2>Work</h2>
+        <div class="head reveal">
+          <span class="label">Work</span>
+          <h2>Platforms I've built</h2>
+          <p>Domain systems I developed at THESOFTKING, from booking engines to marketplaces.</p>
         </div>
 
-        <ul class="work-list">
-          <li>Hotel management SaaS <span>SaaS</span></li>
-          <li>Bus ticketing &amp; fleet booking <span>Booking</span></li>
-          <li>Multi-vendor booking <span>Booking</span></li>
-          <li>E-commerce storefronts <span>E-commerce</span></li>
-          <li>Microstock marketplace <span>Marketplace</span></li>
-          <li>Matrimony platform <span>Matchmaking</span></li>
-          <li>eSIM purchase platform <span>Telecom</span></li>
-          <li>Video streaming platform <span>Media</span></li>
-        </ul>
-        <p class="note">Domain systems I developed at THESOFTKING, implementing role-based access control,
-          subscriptions, and automated payouts.</p>
+        <div class="work-grid">
+          <div class="card lift work-card reveal">
+            <div class="work-top"><span class="tile"><svg class="i">
+                  <use href="#i-hotel" />
+                </svg></span><span>01</span></div>
+            <h3>Hotel management SaaS</h3>
+            <p>SaaS</p>
+          </div>
+          <div class="card lift work-card reveal">
+            <div class="work-top"><span class="tile"><svg class="i">
+                  <use href="#i-bus" />
+                </svg></span><span>02</span></div>
+            <h3>Bus ticketing &amp; fleet booking</h3>
+            <p>Booking</p>
+          </div>
+          <div class="card lift work-card reveal">
+            <div class="work-top"><span class="tile"><svg class="i">
+                  <use href="#i-calendar" />
+                </svg></span><span>03</span></div>
+            <h3>Multi-vendor booking</h3>
+            <p>Booking</p>
+          </div>
+          <div class="card lift work-card reveal">
+            <div class="work-top"><span class="tile"><svg class="i">
+                  <use href="#i-cart" />
+                </svg></span><span>04</span></div>
+            <h3>E-commerce storefronts</h3>
+            <p>E-commerce</p>
+          </div>
+          <div class="card lift work-card reveal">
+            <div class="work-top"><span class="tile"><svg class="i">
+                  <use href="#i-image" />
+                </svg></span><span>05</span></div>
+            <h3>Microstock marketplace</h3>
+            <p>Marketplace</p>
+          </div>
+          <div class="card lift work-card reveal">
+            <div class="work-top"><span class="tile"><svg class="i">
+                  <use href="#i-heart" />
+                </svg></span><span>06</span></div>
+            <h3>Matrimony platform</h3>
+            <p>Matchmaking</p>
+          </div>
+          <div class="card lift work-card reveal">
+            <div class="work-top"><span class="tile"><svg class="i">
+                  <use href="#i-sim" />
+                </svg></span><span>07</span></div>
+            <h3>eSIM purchase platform</h3>
+            <p>Telecom</p>
+          </div>
+          <div class="card lift work-card reveal">
+            <div class="work-top"><span class="tile"><svg class="i">
+                  <use href="#i-play" />
+                </svg></span><span>08</span></div>
+            <h3>Video streaming platform</h3>
+            <p>Media</p>
+          </div>
+        </div>
+
+        <div class="note reveal">
+          <span>Implemented across these systems:</span>
+          <ul class="tags">
+            <li>Role-based access control</li>
+            <li>Subscriptions</li>
+            <li>Automated payouts</li>
+          </ul>
+        </div>
       </div>
     </section>
 
     <!-- SKILLS -->
-    <section class="block" id="skills">
+    <section class="block alt" id="skills">
       <div class="wrap">
-        <div class="head"><span>04</span>
-          <h2>Skills</h2>
+        <div class="head reveal">
+          <span class="label">Skills</span>
+          <h2>The toolkit I work with</h2>
+          <p>Backend first, with enough frontend and DevOps to take a feature all the way to production.</p>
         </div>
 
-        <dl class="skills">
-          <div>
-            <dt>Backend</dt>
-            <dd>
-              <ul class="tags">
-                <li>PHP 8.3</li>
-                <li>Laravel</li>
-                <li>Laravel Livewire</li>
-                <li>Eloquent ORM</li>
-                <li>MVC Architecture</li>
-                <li>Object-Oriented Programming</li>
-                <li>C</li>
-                <li>C++</li>
-              </ul>
-            </dd>
+        <div class="skills-grid">
+          <div class="card skill-card wide reveal">
+            <div class="skill-head">
+              <span class="tile"><svg class="i">
+                  <use href="#i-server" />
+                </svg></span>
+              <h3>Backend</h3>
+            </div>
+            <ul class="tags">
+              <li>PHP 8.3</li>
+              <li>Laravel</li>
+              <li>Laravel Livewire</li>
+              <li>Eloquent ORM</li>
+              <li>MVC Architecture</li>
+              <li>Object-Oriented Programming</li>
+              <li>C</li>
+              <li>C++</li>
+            </ul>
           </div>
-          <div>
-            <dt>Frontend</dt>
-            <dd>
-              <ul class="tags">
-                <li>JavaScript</li>
-                <li>Node.js</li>
-                <li>React.js</li>
-                <li>jQuery</li>
-                <li>HTML5</li>
-                <li>CSS3</li>
-                <li>Blade Templating</li>
-              </ul>
-            </dd>
+          <div class="card skill-card wide reveal">
+            <div class="skill-head">
+              <span class="tile"><svg class="i">
+                  <use href="#i-nodes" />
+                </svg></span>
+              <h3>APIs &amp; Architecture</h3>
+            </div>
+            <ul class="tags">
+              <li>RESTful API Design</li>
+              <li>Multi-Tenant SaaS Architecture</li>
+              <li>System Design</li>
+              <li>RBAC</li>
+              <li>Third-Party API Integration</li>
+            </ul>
           </div>
-          <div>
-            <dt>Database</dt>
-            <dd>
-              <ul class="tags">
-                <li>MySQL</li>
-                <li>Database Design</li>
-                <li>Query Optimization</li>
-              </ul>
-            </dd>
+          <div class="card skill-card reveal">
+            <div class="skill-head">
+              <span class="tile"><svg class="i">
+                  <use href="#i-layout" />
+                </svg></span>
+              <h3>Frontend</h3>
+            </div>
+            <ul class="tags">
+              <li>JavaScript</li>
+              <li>Node.js</li>
+              <li>React.js</li>
+              <li>jQuery</li>
+              <li>HTML5</li>
+              <li>CSS3</li>
+              <li>Blade Templating</li>
+            </ul>
           </div>
-          <div>
-            <dt>APIs &amp; Architecture</dt>
-            <dd>
-              <ul class="tags">
-                <li>RESTful API Design</li>
-                <li>Multi-Tenant SaaS Architecture</li>
-                <li>System Design</li>
-                <li>RBAC</li>
-                <li>Third-Party API Integration</li>
-              </ul>
-            </dd>
+          <div class="card skill-card reveal">
+            <div class="skill-head">
+              <span class="tile"><svg class="i">
+                  <use href="#i-db" />
+                </svg></span>
+              <h3>Database</h3>
+            </div>
+            <ul class="tags">
+              <li>MySQL</li>
+              <li>Database Design</li>
+              <li>Query Optimization</li>
+            </ul>
           </div>
-          <div>
-            <dt>Domain Expertise</dt>
-            <dd>
-              <ul class="tags">
-                <li>Payment Gateway Integration</li>
-                <li>E-Commerce Platforms</li>
-                <li>Booking &amp; Reservation Systems</li>
-              </ul>
-            </dd>
+          <div class="card skill-card reveal">
+            <div class="skill-head">
+              <span class="tile"><svg class="i">
+                  <use href="#i-card" />
+                </svg></span>
+              <h3>Domain Expertise</h3>
+            </div>
+            <ul class="tags">
+              <li>Payment Gateway Integration</li>
+              <li>E-Commerce Platforms</li>
+              <li>Booking &amp; Reservation Systems</li>
+            </ul>
           </div>
-          <div>
-            <dt>DevOps &amp; Tools</dt>
-            <dd>
-              <ul class="tags">
-                <li>Git</li>
-                <li>Docker</li>
-                <li>Code Review</li>
-                <li>Debugging</li>
-                <li>Performance Optimization</li>
-                <li>Technical Documentation</li>
-              </ul>
-            </dd>
+          <div class="card skill-card wide reveal">
+            <div class="skill-head">
+              <span class="tile"><svg class="i">
+                  <use href="#i-terminal" />
+                </svg></span>
+              <h3>DevOps &amp; Tools</h3>
+            </div>
+            <ul class="tags">
+              <li>Git</li>
+              <li>Docker</li>
+              <li>Code Review</li>
+              <li>Debugging</li>
+              <li>Performance Optimization</li>
+              <li>Technical Documentation</li>
+            </ul>
           </div>
-          <div>
-            <dt>Professional</dt>
-            <dd>
-              <ul class="tags">
-                <li>Team Leadership</li>
-                <li>Junior Developer Mentoring</li>
-                <li>Requirements Analysis</li>
-                <li>Client Communication</li>
-              </ul>
-            </dd>
+          <div class="card skill-card wide reveal">
+            <div class="skill-head">
+              <span class="tile"><svg class="i">
+                  <use href="#i-users" />
+                </svg></span>
+              <h3>Professional</h3>
+            </div>
+            <ul class="tags">
+              <li>Team Leadership</li>
+              <li>Junior Developer Mentoring</li>
+              <li>Requirements Analysis</li>
+              <li>Client Communication</li>
+            </ul>
           </div>
-        </dl>
+        </div>
       </div>
     </section>
 
     <!-- EDUCATION -->
     <section class="block" id="education">
       <div class="wrap">
-        <div class="head"><span>05</span>
-          <h2>Education</h2>
+        <div class="head reveal">
+          <span class="label">Education</span>
+          <h2>Academic background</h2>
         </div>
 
-        <div class="edu">
-          <span class="edu-year">2020</span>
-          <div>
+        <div class="edu-grid">
+          <div class="card edu-card reveal">
+            <span class="job-date">2020</span>
             <h3>B.Sc. in Computer Science &amp; Engineering</h3>
             <p>Bangladesh Institute of Science &amp; Technology (BIST), Dhaka</p>
+            <p class="edu-score">CGPA <b>3.34</b> / 4.00</p>
           </div>
-          <span class="edu-score">CGPA 3.34 / 4.00</span>
-        </div>
-        <div class="edu">
-          <span class="edu-year">2015</span>
-          <div>
+          <div class="card edu-card reveal">
+            <span class="job-date">2015</span>
             <h3>Higher Secondary Certificate (Science)</h3>
             <p>Rangpur Govt. College</p>
+            <p class="edu-score">CGPA <b>4.57</b> / 5.00</p>
           </div>
-          <span class="edu-score">CGPA 4.57 / 5.00</span>
-        </div>
-        <div class="edu">
-          <span class="edu-year">2013</span>
-          <div>
+          <div class="card edu-card reveal">
+            <span class="job-date">2013</span>
             <h3>Secondary School Certificate (Science)</h3>
             <p>Kallani High School</p>
+            <p class="edu-score">CGPA <b>5.00</b> / 5.00</p>
           </div>
-          <span class="edu-score">CGPA 5.00 / 5.00</span>
         </div>
       </div>
     </section>
 
     <!-- CONTACT -->
-    <section class="block" id="contact">
+    <section class="block alt" id="contact">
       <div class="wrap">
-        <div class="head"><span>06</span>
-          <h2>Contact</h2>
-        </div>
-
-        <div class="contact">
-          <h2>Let's work together.</h2>
+        <div class="contact reveal">
+          <span class="label">Contact</span>
+          <h2>Let's build something <span class="accent">together</span>.</h2>
           <p>I'm looking for a mid-to-senior Software Engineer / Laravel Developer role. If you think I'd be a good
             fit, I'd love to hear from you.</p>
           <a class="contact-email" href="mailto:mdrahmanashiqur3@gmail.com">mdrahmanashiqur3@gmail.com</a>
@@ -1291,7 +1654,11 @@
   <footer>
     <div class="wrap footer-row">
       <span>© 2026 Md Ashiqur Rahman · Dhaka, Bangladesh</span>
-      <a href="#top">Back to top ↑</a>
+      <span class="footer-links">
+        <a href="https://www.linkedin.com/in/kazi-ashiqurrahman/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/kaziashiqur" target="_blank" rel="noopener">GitHub</a>
+        <a href="#top">Back to top ↑</a>
+      </span>
     </div>
   </footer>
 
@@ -1299,8 +1666,8 @@
     <div class="resume-bar">
       <span>Resume — Md Ashiqur Rahman</span>
       <span class="resume-actions">
-        <a class="btn btn-ghost" href="resume.pdf" download="Md_Ashiqur_Rahman_Resume.pdf">Download</a>
-        <button type="button" class="btn btn-ghost" id="resumeClose">Close</button>
+        <a class="btn btn-ghost btn-sm" href="resume.pdf" download="Md_Ashiqur_Rahman_Resume.pdf">Download</a>
+        <button type="button" class="btn btn-ghost btn-sm" id="resumeClose">Close</button>
       </span>
     </div>
     <div class="resume-pages" id="resumePages"></div>
@@ -1373,7 +1740,7 @@
     // Mobile nav
     const siteHeader = document.getElementById('siteHeader');
     const navToggle = document.getElementById('navToggle');
-    const navLinks = [...document.querySelectorAll('#navLinks a')];
+    const navLinks = [...document.querySelectorAll('#navLinks a[href^="#"]')];
 
     function closeNav() {
       siteHeader.classList.remove('nav-open');
@@ -1390,9 +1757,9 @@
     const sections = navLinks.map(a => document.querySelector(a.getAttribute('href')));
     function updateActiveNav() {
       const line = window.innerHeight * 0.35;
-      let current = 0;
+      let current = -1;
       sections.forEach((s, i) => {
-        if (i > 0 && s.getBoundingClientRect().top <= line) current = i;
+        if (s.getBoundingClientRect().top <= line) current = i;
       });
       if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) current = sections.length - 1;
       navLinks.forEach((a, i) => a.classList.toggle('is-active', i === current));
@@ -1400,6 +1767,21 @@
     window.addEventListener('scroll', updateActiveNav, {passive: true});
     window.addEventListener('resize', updateActiveNav);
     updateActiveNav();
+
+    // Scroll-reveal
+    let pendingReveals = [...document.querySelectorAll('.reveal')];
+    function revealInView() {
+      const limit = window.innerHeight * 0.94;
+      pendingReveals = pendingReveals.filter(el => {
+        if (el.getBoundingClientRect().top > limit) return true;
+        el.classList.add('is-visible');
+        return false;
+      });
+    }
+    window.addEventListener('scroll', revealInView, {passive: true});
+    window.addEventListener('resize', revealInView);
+    window.addEventListener('load', revealInView);
+    revealInView();
   </script>
 
 </body>
